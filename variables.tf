@@ -71,3 +71,9 @@ variable "slack_api_key" {
   type        = string
   default     = ""
 }
+
+variable "custom_values_file_path" {
+  description = "Absolute path to a custom values.yaml file to use"
+  type        = string
+  default     = ""
+}

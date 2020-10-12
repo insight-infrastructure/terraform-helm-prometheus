@@ -25,6 +25,5 @@ resource "helm_release" "prometheus" {
   repository = data.helm_repository.prometheus-community.metadata[0].name
   namespace  = "kube-system"
 
-  values = [data.template_file.prometheus.rendered]
+  values = var.custom_values_file_path == "" ? [data.template_file.prometheus.rendered] : file(var.custom_values_file_path)
 }
-

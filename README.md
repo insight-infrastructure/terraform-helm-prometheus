@@ -43,6 +43,7 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | alertmanager\_subdomain | The subdomain for AlertManager | `string` | `"alertmanager"` | no |
 | cloud\_platform | The cloud platform where the cluster is deployed | `string` | n/a | yes |
+| custom\_values\_file\_path | Absolute path to a custom values.yaml file to use | `string` | `""` | no |
 | deployment\_domain\_name | The domain name that will host the deployment | `string` | `""` | no |
 | grafana\_subdomain | The subdomain for Grafana | `string` | `"grafana"` | no |
 | issuer\_name | k8s resource name for your certificate issuer (e.g. letsencrypt) | `string` | `"letsencrypt"` | no |
