@@ -37,36 +37,42 @@ alertmanager:
               {{ end }}{{ end }}
               {{ end }}
       - name: 'null'
-  alertmanagerSpec:
-    externalUrl: "http://${alertmanager_subdomain}.${root_domain_name}"
+
   ingress:
+    enabled: true
+
     annotations:
       ingress.kubernetes.io/rewrite-target: /
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    enabled: true
+
     hosts:
       - ${alertmanager_subdomain}.${root_domain_name}
+
   service:
     type: NodePort
 
-
 grafana:
+
   ingress:
+
     annotations:
       ingress.kubernetes.io/rewrite-target: /
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
     enabled: true
+
     hosts:
       - ${grafana_subdomain}.${root_domain_name}
+
   service:
     type: NodePort
 
-additionalPrometheusRules:
-  - name: node-rules
+additionalPrometheusRulesMap:
+  - node-rules:
     groups:
       - name: docker-hosts
         rules:
@@ -153,17 +159,23 @@ additionalPrometheusRules:
             description: '{{ $labels.instance }} has had a docker container fail a health check.'
 
 prometheus:
+
   ingress:
+
     annotations:
       ingress.kubernetes.io/rewrite-target: /
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
     enabled: true
+
     hosts:
       - ${prometheus_subdomain}.${root_domain_name}
+
   service:
     type: NodePort
+
   prometheusSpec:
     storageSpec:
       volumeClaimTemplate:
@@ -172,7 +184,7 @@ prometheus:
           resources:
             requests:
               storage: 50Gi
-    externalUrl: "http://${prometheus_subdomain}.${root_domain_name}"
+
     additionalScrapeConfigs:
       - job_name: consul
         metrics_path: /v1/agent/metrics
