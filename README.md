@@ -47,7 +47,6 @@ No requirements.
 | deployment\_domain\_name | The domain name that will host the deployment | `string` | `""` | no |
 | grafana\_subdomain | The subdomain for Grafana | `string` | `"grafana"` | no |
 | issuer\_name | k8s resource name for your certificate issuer (e.g. letsencrypt) | `string` | `"letsencrypt"` | no |
-| prometheus\_enabled | Bool to enable prometheus | `bool` | `true` | no |
 | prometheus\_password | Password used for Prometheus authentication | `string` | `"node_exporter_password"` | no |
 | prometheus\_subdomain | The subdomain for Prometheus | `string` | `"prometheus"` | no |
 | prometheus\_user | Username used for Prometheus authentication | `string` | `"node_exporter_user"` | no |

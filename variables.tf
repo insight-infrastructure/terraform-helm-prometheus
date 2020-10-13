@@ -48,12 +48,6 @@ variable "issuer_name" {
 }
 
 # Prometheus
-variable "prometheus_enabled" {
-  description = "Bool to enable prometheus"
-  type        = bool
-  default     = true
-}
-
 variable "prometheus_user" {
   description = "Username used for Prometheus authentication"
   type        = string
