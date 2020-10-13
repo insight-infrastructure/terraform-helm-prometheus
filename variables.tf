@@ -66,8 +66,16 @@ variable "slack_api_key" {
   default     = ""
 }
 
+# Custom values
+
 variable "custom_values_file_path" {
   description = "Absolute path to a custom values.yaml file to use"
+  type        = string
+  default     = ""
+}
+
+variable "custom_alertmanager_template_file_path" {
+  description = "Absolute path to a file containing custom Alertmanager templates in YAML"
   type        = string
   default     = ""
 }

@@ -1,4 +1,8 @@
 alertmanager:
+  %{if alertmanager_templates != ""}
+  templateFiles:
+    ${indent(2, alertmanager_templates)}
+  %{endif}
   config:
     global:
       resolve_timeout: 5m
