@@ -15,7 +15,7 @@ data "template_file" "prometheus" {
     name_of_cluster_issuer = var.issuer_name
     prometheus_user        = var.prometheus_user
     prometheus_password    = var.prometheus_password
-    alertmanager_templates = var.custom_alertmanager_template_file_path == "" ? (var.custom_alertmanager_template_file_path) : ""
+    alertmanager_templates = var.custom_alertmanager_template_file_path != "" ? file(var.custom_alertmanager_template_file_path) : ""
   }
 }
 
