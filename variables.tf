@@ -85,3 +85,9 @@ variable "custom_prometheus_rules_file_path" {
   type        = string
   default     = ""
 }
+
+variable "grafana_user_password" {
+  description = "The password for the grafana admin user"
+  type        = string
+  default     = "prom-operator"
+}

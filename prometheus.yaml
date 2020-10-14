@@ -58,7 +58,7 @@ alertmanager:
     type: NodePort
 
 grafana:
-
+  adminPassword: "${grafana_pw}"
   ingress:
 
     annotations:

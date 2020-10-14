@@ -48,6 +48,7 @@ No requirements.
 | custom\_values\_file\_path | Absolute path to a custom values.yaml file to use | `string` | `""` | no |
 | deployment\_domain\_name | The domain name that will host the deployment | `string` | `""` | no |
 | grafana\_subdomain | The subdomain for Grafana | `string` | `"grafana"` | no |
+| grafana\_user\_password | The password for the grafana admin user | `string` | `"prom-operator"` | no |
 | issuer\_name | k8s resource name for your certificate issuer (e.g. letsencrypt) | `string` | `"letsencrypt"` | no |
 | prometheus\_password | Password used for Prometheus authentication | `string` | `"node_exporter_password"` | no |
 | prometheus\_subdomain | The subdomain for Prometheus | `string` | `"prometheus"` | no |

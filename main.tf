@@ -17,6 +17,7 @@ data "template_file" "prometheus" {
     prometheus_password    = var.prometheus_password
     alertmanager_templates = var.custom_alertmanager_template_file_path != "" ? file(var.custom_alertmanager_template_file_path) : ""
     prometheus_rules       = var.custom_prometheus_rules_file_path != "" ? file(var.custom_prometheus_rules_file_path) : ""
+    grafana_pw             = var.grafana_user_password
   }
 }
 
