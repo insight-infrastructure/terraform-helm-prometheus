@@ -16,6 +16,7 @@ data "template_file" "prometheus" {
     prometheus_user        = var.prometheus_user
     prometheus_password    = var.prometheus_password
     alertmanager_templates = var.custom_alertmanager_template_file_path != "" ? file(var.custom_alertmanager_template_file_path) : ""
+    prometheus_rules       = var.custom_prometheus_rules_file_path != "" ? file(var.custom_prometheus_rules_file_path) : ""
   }
 }
 

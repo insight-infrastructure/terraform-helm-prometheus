@@ -79,3 +79,9 @@ variable "custom_alertmanager_template_file_path" {
   type        = string
   default     = ""
 }
+
+variable "custom_prometheus_rules_file_path" {
+  description = "Absolute path to a file containing custom Prometheus alert rules in YAML"
+  type        = string
+  default     = ""
+}

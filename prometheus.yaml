@@ -76,7 +76,10 @@ grafana:
     type: NodePort
 
 additionalPrometheusRulesMap:
-  - node-rules:
+  %{if prometheus_rules != ""}
+  ${indent(2, prometheus_rules)}
+  %{endif}
+  node-rules:
     groups:
       - name: docker-hosts
         rules:

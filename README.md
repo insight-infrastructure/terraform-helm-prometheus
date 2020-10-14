@@ -44,6 +44,7 @@ No requirements.
 | alertmanager\_subdomain | The subdomain for AlertManager | `string` | `"alertmanager"` | no |
 | cloud\_platform | The cloud platform where the cluster is deployed | `string` | n/a | yes |
 | custom\_alertmanager\_template\_file\_path | Absolute path to a file containing custom Alertmanager templates in YAML | `string` | `""` | no |
+| custom\_prometheus\_rules\_file\_path | Absolute path to a file containing custom Prometheus alert rules in YAML | `string` | `""` | no |
 | custom\_values\_file\_path | Absolute path to a custom values.yaml file to use | `string` | `""` | no |
 | deployment\_domain\_name | The domain name that will host the deployment | `string` | `""` | no |
 | grafana\_subdomain | The subdomain for Grafana | `string` | `"grafana"` | no |
