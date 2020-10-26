@@ -85,9 +85,6 @@ grafana:
     type: NodePort
 
 additionalPrometheusRulesMap:
-  %{if prometheus_rules != ""}
-  ${indent(2, prometheus_rules)}
-  %{endif}
   node-rules:
     groups:
       - name: docker-hosts
@@ -173,7 +170,9 @@ additionalPrometheusRulesMap:
           annotations:
             identifier: '{{ $labels.instance }}'
             description: '{{ $labels.instance }} has had a docker container fail a health check.'
-
+  %{if prometheus_rules != ""}
+  ${indent(2, prometheus_rules)}
+  %{endif}
 prometheus:
 
   ingress:
@@ -238,8 +237,8 @@ prometheus:
         scrape_interval: 10s
         scrape_timeout:  10s
         basic_auth:
-          - username: ${prometheus_user}
-            password: ${prometheus_password}
+          username: ${prometheus_user}
+          password: ${prometheus_password}
         consul_sd_configs:
           - server:   consul.service.consul:8500
             datacenter: ${region}

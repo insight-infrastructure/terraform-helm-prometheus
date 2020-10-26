@@ -35,6 +35,7 @@ No requirements.
 | Name | Version |
 |------|---------|
 | helm | n/a |
+| random | n/a |
 | template | n/a |
 
 ## Inputs
@@ -54,6 +55,7 @@ No requirements.
 | prometheus\_subdomain | The subdomain for Prometheus | `string` | `"prometheus"` | no |
 | prometheus\_user | Username used for Prometheus authentication | `string` | `"node_exporter_user"` | no |
 | region | The region where the cluster is deployed | `string` | n/a | yes |
+| release\_name | A custom release name. If not specified, a random suffix will be added to 'prometheus-'. | `string` | `""` | no |
 | slack\_api\_key | Your Slack API key to receive alerts | `string` | `""` | no |
 | ssl\_enabled | Bool to enable SSL for all endpoints | `bool` | `true` | no |
 

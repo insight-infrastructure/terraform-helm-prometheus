@@ -2,6 +2,10 @@ locals {
   which_template = var.ssl_enabled ? "${path.module}/prometheus_ssl.yaml" : "${path.module}/prometheus.yaml"
 }
 
+resource "random_pet" "this" {
+  length = 1
+}
+
 data "template_file" "prometheus" {
   template = file(local.which_template)
   vars = {
@@ -22,8 +26,8 @@ data "template_file" "prometheus" {
 }
 
 resource "helm_release" "prometheus" {
-  name       = "prometheus"
-  chart      = "prometheus-community/kube-prometheus-stack"
+  name       = var.release_name == "" ? "prometheus-${random_pet.this.id}" : var.release_name
+  chart      = "kube-prometheus-stack"
   repository = "https://prometheus-community.github.io/helm-charts"
   namespace  = "kube-system"
 

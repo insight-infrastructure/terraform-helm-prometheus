@@ -91,3 +91,9 @@ variable "grafana_user_password" {
   type        = string
   default     = "prom-operator"
 }
+
+variable "release_name" {
+  description = "A custom release name. If not specified, a random suffix will be added to 'prometheus-'."
+  type        = string
+  default     = ""
+}
